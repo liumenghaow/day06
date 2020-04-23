@@ -24,5 +24,24 @@ public class DateUtilTest {
 		Date date=new Date(900000000000l);
 		System.out.println(df.format(date));
 	}
+	@Test//月初
+	public void testgetInitMonth() {
+		Date date = DateUtil.getInitMonth(new Date(99999999999l));
+		SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println(s.format(date));
+	}
+	@Test//月末
+	public void testgetEndMonth() {
+		Date date = DateUtil.getEndMonth(new Date());
+		SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println(s.format(date));
+	}
+	@Test//计算年龄
+	public void testgetAgeByBirthday() {
+		Calendar calendar=Calendar.getInstance();
+		calendar.set(2010, 2,20);
+		int i=DateUtil.getAgeByBirthday(calendar.getTime());
+		System.out.println(i);
+	}
 
 }
